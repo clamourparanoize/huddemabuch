@@ -26,6 +26,7 @@ export type Database = {
           aussprache_hinweis: string | null;
           anmerkung: string | null;
           eingereicht_von: string | null;
+          eingereicht_email: string | null;
           status: EintragStatus;
           interne_notiz: string | null;
           created_at: string;
@@ -41,6 +42,7 @@ export type Database = {
           aussprache_hinweis?: string | null;
           anmerkung?: string | null;
           eingereicht_von?: string | null;
+          eingereicht_email?: string | null;
           status?: EintragStatus;
           interne_notiz?: string | null;
         };
@@ -53,6 +55,7 @@ export type Database = {
           aussprache_hinweis?: string | null;
           anmerkung?: string | null;
           eingereicht_von?: string | null;
+          eingereicht_email?: string | null;
           status?: EintragStatus;
           interne_notiz?: string | null;
         };

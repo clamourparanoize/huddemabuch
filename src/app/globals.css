@@ -1,27 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfaf3;
-  --foreground: #2b2118;
-  --accent: #a8451f;
-  --accent-dark: #7e330f;
+  /* Warmes Papier statt reinem Weiß, dunkles Anthrazit statt Schwarz -
+     siehe Design-Vorgabe "moderner regionaler Duden". */
+  --background: #f7f5f0;
+  --foreground: #191919;
+  --muted: #696760;
+
+  /* Hauptakzent Dunkelgrün - Navigation, Buttons, Linien, Fokus. */
+  --accent: #244a38;
+  --accent-dark: #1a3628;
+
+  /* Zweiter Akzent - nur für sehr sparsame Details. */
+  --gold: #c7983e;
+
   --card: #ffffff;
-  --border: #e6dcc8;
-  --muted: #6b5d4a;
+  --border: #d9d6ce;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /*
- * Bewusst große Grundschrift und großzügige Abstände im gesamten
- * Projekt - Zielgruppe der Einreichenden sind oft ältere Personen,
- * Lesbarkeit geht vor Dichte.
+ * Grundschrift bewusst nicht winzig - Zielgruppe der Einreichenden sind
+ * oft ältere Personen, Lesbarkeit geht vor Dichte. 17px statt der
+ * früheren 18px, da die neue Typografie-Hierarchie (siehe Wörterbuch-
+ * einträge) mehr über Größenkontraste als über eine große Grundschrift
+ * arbeitet.
  */
 html {
-  font-size: 18px;
+  font-size: 17px;
+  scroll-behavior: smooth;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+}
+
+/* Anchor-Ziele der Buchstabengruppen - Abstand zum (nicht fixierten)
+   Seitenanfang, damit die Überschrift beim Ansprung nicht am
+   Viewport-Rand klebt. */
+.buchstaben-anker {
+  scroll-margin-top: 24px;
+}
+
+/* A-Z-Leiste: horizontal scrollbar auf Mobile, ohne sichtbaren
+   Scrollbalken - editorial, keine Button-Optik. */
+.az-leiste {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.az-leiste::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dezentes, rein typografisches Wasserzeichen im Hero - siehe
+   Design-Vorgabe Punkt 5. Läuft bewusst nicht über die Lesespalte,
+   beeinflusst nie die Lesbarkeit des Vordergrundtexts. */
+.hero-wasserzeichen {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

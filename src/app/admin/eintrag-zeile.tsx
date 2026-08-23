@@ -55,6 +55,11 @@ export function EintragZeile({ eintrag }: { eintrag: Eintrag }) {
               Eingereicht von: {eintrag.eingereichtVon}
             </p>
           )}
+          {eintrag.eingereichtEmail && (
+            <p className="text-sm text-[var(--muted)]">
+              E-Mail (intern, nie öffentlich): {eintrag.eingereichtEmail}
+            </p>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-2">

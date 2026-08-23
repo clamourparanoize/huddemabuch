@@ -18,6 +18,7 @@ function mapRow(row: Row): Eintrag {
     aussprachehinweis: row.aussprache_hinweis,
     anmerkung: row.anmerkung,
     eingereichtVon: row.eingereicht_von,
+    eingereichtEmail: row.eingereicht_email,
     status: row.status,
     interneNotiz: row.interne_notiz,
     createdAt: row.created_at,

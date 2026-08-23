@@ -33,6 +33,7 @@ export async function eintragEinreichen(
     aussprachehinweis: formData.get("aussprachehinweis")?.toString() ?? "",
     anmerkung: formData.get("anmerkung")?.toString() ?? "",
     eingereichtVon: formData.get("eingereichtVon")?.toString() ?? "",
+    eingereichtEmail: formData.get("eingereichtEmail")?.toString() ?? "",
     turnstileToken: formData.get("cf-turnstile-response")?.toString() ?? "",
   };
 
@@ -69,6 +70,7 @@ export async function eintragEinreichen(
     aussprache_hinweis: parsed.data.aussprachehinweis || null,
     anmerkung: parsed.data.anmerkung || null,
     eingereicht_von: parsed.data.eingereichtVon || null,
+    eingereicht_email: parsed.data.eingereichtEmail || null,
   });
 
   if (error) {

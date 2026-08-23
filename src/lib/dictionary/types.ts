@@ -12,6 +12,7 @@ export type Eintrag = {
   aussprachehinweis: string | null;
   anmerkung: string | null;
   eingereichtVon: string | null;
+  eingereichtEmail: string | null;
   status: EintragStatus;
   interneNotiz: string | null;
   createdAt: string;
@@ -23,6 +24,6 @@ export const WORTARTEN = [
   "Verb",
   "Adjektiv",
   "Redewendung",
-  "Schimpfwort",
+  "Ausdruck",
   "Sonstiges",
 ] as const;

@@ -23,6 +23,13 @@ export const einreichungSchema = z.object({
   aussprachehinweis: z.string().trim().max(300).optional().or(z.literal("")),
   anmerkung: z.string().trim().max(1000).optional().or(z.literal("")),
   eingereichtVon: z.string().trim().max(200).optional().or(z.literal("")),
+  eingereichtEmail: z
+    .string()
+    .trim()
+    .max(200)
+    .email("Das sieht nicht nach einer gültigen E-Mail-Adresse aus.")
+    .optional()
+    .or(z.literal("")),
   turnstileToken: z.string().optional().or(z.literal("")),
 });
 
