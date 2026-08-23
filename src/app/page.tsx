@@ -78,14 +78,14 @@ export default async function StartSeite({
             aria-hidden
             className="hero-wasserzeichen font-serif-display absolute -right-6 -top-10 hidden text-[220px] font-semibold leading-none text-[var(--foreground)] opacity-[0.04] md:block lg:text-[280px]"
           >
-            HUDDE
+            HUDDENE
           </span>
           <div className="relative mx-auto max-w-[1080px] px-[18px] pb-[50px] pt-[70px] sm:px-6 lg:px-8">
             <p className="text-sm font-semibold tracking-[0.14em] text-[var(--accent)]">
               HUTTENHEIMER DIALEKT
             </p>
             <h1 className="font-serif-display mt-4 max-w-[700px] text-[38px] font-semibold leading-[1.1] text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-              So schwätzt Hudde.
+              So schwätzt Huddene.
             </h1>
             <p className="mt-5 max-w-[680px] text-lg text-[var(--muted)]">
               Wörter und Ausdrücke aus dem Huttenheimer Dialekt, gesammelt von
