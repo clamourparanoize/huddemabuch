@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfaf3;
+  --foreground: #2b2118;
+  --accent: #a8451f;
+  --accent-dark: #7e330f;
+  --card: #ffffff;
+  --border: #e6dcc8;
+  --muted: #6b5d4a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/*
+ * Bewusst große Grundschrift und großzügige Abstände im gesamten
+ * Projekt - Zielgruppe der Einreichenden sind oft ältere Personen,
+ * Lesbarkeit geht vor Dichte.
+ */
+html {
+  font-size: 18px;
+}
