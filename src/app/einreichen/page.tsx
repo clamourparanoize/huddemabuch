@@ -18,7 +18,7 @@ export default function EinreichenSeite() {
               MITMACHEN
             </p>
             <h1 className="font-serif-display mt-4 max-w-[700px] text-[38px] font-semibold leading-[1.1] sm:text-5xl">
-              Kennschd noch ä Wort?
+              Kennsch noch ä Wort?
             </h1>
             <p className="mt-5 max-w-[680px] text-lg text-[var(--muted)]">
               Hilf mit, den Huttenheimer Dialekt zu bewahren. Trag ein Wort,
