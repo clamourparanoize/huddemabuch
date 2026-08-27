@@ -49,9 +49,9 @@ export default function ImpressumSeite() {
               Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
             </h2>
             <p className="mt-2">
-              Matthias Wittemann
+              Clamour Paranoize, Inh. Julian Baader
               <br />
-              Philippsburgerstr. 97
+              Hubert-Heil-Str. 31
               <br />
               76661 Philippsburg
             </p>
