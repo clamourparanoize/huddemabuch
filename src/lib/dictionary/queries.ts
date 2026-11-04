@@ -47,6 +47,27 @@ export async function getFreigegebeneEintraege(suche?: string) {
   return (data ?? []).map(mapRow);
 }
 
+/**
+ * Nur die Anzahl der noch ungeprüften Einträge (für den Hinweis auf der
+ * Startseite) - es werden keine Inhalte geladen. Läuft über den
+ * Admin-Client, weil anonyme Besucher ungeprüfte Einträge per RLS nicht
+ * sehen dürfen; bei jedem Fehler (z. B. fehlender Service-Key) wird
+ * einfach nichts angezeigt.
+ */
+export async function getAnzahlInPruefung(): Promise<number> {
+  try {
+    const supabase = createAdminClient();
+    const { count, error } = await supabase
+      .from("eintraege")
+      .select("id", { count: "exact", head: true })
+      .eq("status", "eingereicht");
+    if (error) return 0;
+    return count ?? 0;
+  } catch {
+    return 0;
+  }
+}
+
 /** Admin: Einträge nach Status, standardmäßig die wartenden zuerst. */
 export async function getEintraegeFuerAdmin(status?: EintragStatus) {
   const supabase = createAdminClient();

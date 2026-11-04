@@ -4,7 +4,10 @@ import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
-import { getFreigegebeneEintraege } from "@/lib/dictionary/queries";
+import {
+  getAnzahlInPruefung,
+  getFreigegebeneEintraege,
+} from "@/lib/dictionary/queries";
 import type { Eintrag } from "@/lib/dictionary/types";
 
 export const dynamic = "force-dynamic";
@@ -67,6 +70,7 @@ export default async function StartSeite({
     alleEintraege.map((e) => ersterBuchstabe(e.wort)),
   );
   const gruppen = gruppiereNachBuchstabe(eintraege);
+  const inPruefung = await getAnzahlInPruefung();
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -172,6 +176,7 @@ export default async function StartSeite({
             <p className="font-display text-xl font-semibold tracking-[0.06em] uppercase">
               {eintraege.length}{" "}
               {eintraege.length === 1 ? "Begriff" : "Begriffe"}
+              {inPruefung > 0 && <> · {inPruefung} in Prüfung</>}
             </p>
           </div>
 
