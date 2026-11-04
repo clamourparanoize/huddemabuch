@@ -1,21 +1,24 @@
 import type { Metadata } from "next";
-import { Fraunces } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 
 import "./globals.css";
 
 /**
- * Serifenschrift ausschließlich für die großen Dialektwörter und die
- * Buchstaben-Abschnittsüberschriften (siehe Design-Vorgabe "Duden +
- * Dorfchronik") - überall sonst (UI, Navigation, Fließtext) bleibt der
- * System-Sans-Stack in globals.css, keine zusätzliche Abhängigkeit
- * nötig. next/font lädt/hostet die Schrift selbst zur Build-Zeit, keine
- * Laufzeit-Anfrage an Google.
+ * Barlow (Fließtext/UI) und Barlow Condensed (Überschriften, Dialektwörter)
+ * - angelehnt an die Schriften deutscher Verkehrs- und Ortsschilder. next/font
+ * lädt/hostet beide zur Build-Zeit selbst, keine Laufzeit-Anfrage an Google.
  */
-const fraunces = Fraunces({
+const barlow = Barlow({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -29,7 +32,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de" className={fraunces.variable}>
+    <html lang="de" className={`${barlow.variable} ${barlowCondensed.variable}`}>
       <body>{children}</body>
     </html>
   );

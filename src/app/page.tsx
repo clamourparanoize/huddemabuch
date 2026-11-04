@@ -41,7 +41,7 @@ export default async function StartSeite({
       <div>
         <SiteHeader />
         <main className="mx-auto max-w-[1080px] px-[18px] py-16 sm:px-6 lg:px-8">
-          <p className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-6 text-lg">
+          <p className="border-[3px] border-[#111] bg-white p-6 text-lg">
             Supabase ist noch nicht eingerichtet. Trag
             <code className="mx-1 rounded bg-black/5 px-1.5 py-0.5">
               NEXT_PUBLIC_SUPABASE_URL
@@ -72,99 +72,104 @@ export default async function StartSeite({
       <SiteHeader />
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative overflow-hidden border-b border-[var(--border)]">
-          <span
-            aria-hidden
-            className="hero-wasserzeichen font-serif-display absolute -right-6 -top-10 hidden text-[220px] font-semibold leading-none text-[var(--foreground)] opacity-[0.04] md:block lg:text-[280px]"
-          >
-            HUDDENE
-          </span>
-          <div className="relative mx-auto max-w-[1080px] px-[18px] pb-[50px] pt-[70px] sm:px-6 lg:px-8">
-            <p className="text-sm font-semibold tracking-[0.14em] text-[var(--accent)]">
-              HUTTENHEIMER DIALEKT
+        {/* Ortsschild */}
+        <section className="mx-auto flex max-w-[1080px] flex-col gap-8 px-[18px] pb-10 pt-10 sm:px-6 md:flex-row md:items-center md:gap-14 md:pt-14 lg:px-8">
+          <div className="w-full shrink-0 rounded-[18px] border-[8px] border-[#111] bg-[var(--green)] px-6 pb-6 pt-5 md:w-[560px] md:border-[10px] md:px-9 md:pb-7">
+            <p className="font-display text-xl font-semibold tracking-[0.14em] text-[#111] uppercase md:text-2xl">
+              Heißt bei uns
             </p>
-            <h1 className="font-serif-display mt-4 max-w-[700px] text-[38px] font-semibold leading-[1.1] text-[var(--foreground)] sm:text-5xl lg:text-6xl">
-              So schwätzt Huddene.
+            <h1 className="font-display text-[clamp(64px,19vw,120px)] leading-[0.92] font-extrabold tracking-[0.01em] text-[#111] uppercase md:text-[132px]">
+              Huddene
             </h1>
-            <p className="mt-5 max-w-[680px] text-lg text-[var(--muted)]">
+            <div className="my-3 h-[6px] bg-[#111]" />
+            <p className="font-display text-[22px] font-semibold text-[#111] md:text-[28px]">
+              Huttenheim · so schwätzt mer
+            </p>
+          </div>
+
+          <div className="min-w-0 flex-1">
+            <p className="text-xl leading-[1.45] font-medium md:text-2xl">
               Wörter und Ausdrücke aus dem Huttenheimer Dialekt, gesammelt von
               Dorfbewohnern – damit sie nicht in Vergessenheit geraten.
             </p>
+            <a
+              href="/einreichen"
+              className="font-display mt-6 inline-block border-b-[6px] border-[var(--green)] pb-0.5 text-[22px] font-bold tracking-[0.05em] uppercase transition-colors hover:border-[#111]"
+            >
+              Kennsch noch ä Wort? →
+            </a>
           </div>
         </section>
 
-        {/* Suche */}
-        <section className="border-b border-[var(--border)] bg-[var(--background)]">
-          <div className="mx-auto max-w-[1080px] px-[18px] py-8 sm:px-6 lg:px-8">
-            <form method="GET" id="wortliste" className="buchstaben-anker">
-              <label
-                htmlFor="suche"
-                className="mb-2 block text-sm font-semibold tracking-wide text-[var(--muted)]"
-              >
-                Im Huddemabuch suchen
-              </label>
-              <div className="relative">
+        {/* Suche + A-Z */}
+        <section className="mx-auto max-w-[1080px] px-[18px] sm:px-6 lg:px-8">
+          <form method="GET" id="wortliste" className="buchstaben-anker">
+            <label
+              htmlFor="suche"
+              className="font-display mb-2 block text-xl font-bold tracking-[0.1em] uppercase"
+            >
+              Im Huddemabuch suchen
+            </label>
+            <div className="flex flex-col sm:flex-row">
+              <div className="relative flex-1">
                 <Search
                   aria-hidden
-                  className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--muted)]"
+                  className="pointer-events-none absolute left-4 top-1/2 h-6 w-6 -translate-y-1/2 text-[#111]"
                 />
                 <input
                   id="suche"
                   type="search"
                   name="q"
                   defaultValue={q ?? ""}
-                  placeholder="Dialektwort oder Bedeutung suchen …"
-                  className="h-[58px] w-full rounded-lg border border-[var(--border)] bg-white pl-12 pr-4 text-base outline-none focus:border-[var(--accent)] sm:h-16 sm:pr-36 sm:text-lg"
+                  placeholder="Dialektwort oder Bedeutung …"
+                  className="h-[60px] w-full border-[3px] border-[#111] bg-white pl-14 pr-4 text-lg outline-none focus:shadow-[0_0_0_4px_var(--green)] sm:h-[68px] sm:border-r-0 sm:text-[22px]"
                 />
-                <button
-                  type="submit"
-                  className="mt-3 h-12 w-full rounded-md bg-[var(--accent)] px-6 text-base font-semibold text-white transition-colors hover:bg-[var(--accent-dark)] sm:absolute sm:right-2 sm:top-2 sm:mt-0 sm:h-12 sm:w-auto"
-                >
-                  Suchen
-                </button>
               </div>
-            </form>
-
-            {/* A-Z-Navigation */}
-            <nav
-              aria-label="Alphabetische Navigation"
-              className="az-leiste mt-7 flex items-baseline gap-4 overflow-x-auto whitespace-nowrap pb-1"
-            >
-              <a
-                href="#wortliste"
-                className="text-[15px] font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+              <button
+                type="submit"
+                className="font-display h-[56px] border-[3px] border-[#111] bg-[var(--green)] px-10 text-2xl font-extrabold tracking-[0.08em] text-[#111] uppercase transition-colors hover:bg-[#111] hover:text-[var(--green)] sm:h-[68px]"
               >
-                Alle
-              </a>
-              {ALPHABET.map((buchstabe) => {
-                const vorhanden = vorhandeneBuchstaben.has(buchstabe);
-                return vorhanden ? (
-                  <a
-                    key={buchstabe}
-                    href={`#buchstabe-${buchstabe}`}
-                    className="text-[15px] font-medium text-[var(--foreground)] underline-offset-4 hover:text-[var(--accent)] hover:underline"
-                  >
-                    {buchstabe}
-                  </a>
-                ) : (
-                  <span
-                    key={buchstabe}
-                    className="text-[15px] font-medium text-[var(--border)]"
-                  >
-                    {buchstabe}
-                  </span>
-                );
-              })}
-            </nav>
-          </div>
+                Suchen
+              </button>
+            </div>
+          </form>
+
+          <nav
+            aria-label="Alphabetische Navigation"
+            className="az-leiste font-display mt-6 flex items-center gap-1 overflow-x-auto whitespace-nowrap pb-1 text-[30px] font-bold"
+          >
+            <a
+              href="#wortliste"
+              className="mr-2 bg-[#111] px-2 text-[var(--green)]"
+            >
+              ALLE
+            </a>
+            {ALPHABET.map((buchstabe) => {
+              const vorhanden = vorhandeneBuchstaben.has(buchstabe);
+              return vorhanden ? (
+                <a
+                  key={buchstabe}
+                  href={`#buchstabe-${buchstabe}`}
+                  className="px-2 transition-colors hover:bg-[var(--green)]"
+                >
+                  {buchstabe}
+                </a>
+              ) : (
+                <span key={buchstabe} className="px-2 text-[#cfcabb]">
+                  {buchstabe}
+                </span>
+              );
+            })}
+          </nav>
         </section>
 
         {/* Wörterbuch */}
         <section className="mx-auto max-w-[1080px] px-[18px] py-10 sm:px-6 lg:px-8">
-          <div className="mb-2 flex items-baseline justify-between border-b border-[var(--border)] pb-4">
-            <h2 className="text-xl font-bold">Wörterbuch</h2>
-            <p className="text-sm text-[var(--muted)]">
+          <div className="flex items-baseline justify-between border-b-4 border-[#111] pb-2">
+            <h2 className="font-display text-4xl font-extrabold tracking-[0.04em] uppercase">
+              Wörterbuch
+            </h2>
+            <p className="font-display text-xl font-semibold tracking-[0.06em] uppercase">
               {eintraege.length}{" "}
               {eintraege.length === 1 ? "Begriff" : "Begriffe"}
             </p>
@@ -177,69 +182,73 @@ export default async function StartSeite({
                 : "Noch keine Einträge freigegeben. Sei der/die Erste und steuere ein Wort bei!"}
             </p>
           ) : (
-            <div className="mx-auto max-w-[900px]">
+            <div>
               {Array.from(gruppen.entries()).map(([buchstabe, gruppe]) => (
-                <div key={buchstabe}>
-                  <h3
-                    id={`buchstabe-${buchstabe}`}
-                    className="buchstaben-anker font-serif-display pt-12 text-5xl font-semibold text-[var(--accent)] first:pt-0 sm:text-6xl"
-                  >
+                <div
+                  key={buchstabe}
+                  id={`buchstabe-${buchstabe}`}
+                  className="buchstaben-anker flex flex-col gap-4 pt-8 md:flex-row md:gap-10"
+                >
+                  <div className="font-display flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-[10px] bg-[#111] text-[48px] font-extrabold text-[var(--green)] md:h-[68px] md:w-[68px] md:text-[54px]">
                     {buchstabe}
-                  </h3>
-                  <ul>
+                  </div>
+
+                  <ul className="min-w-0 flex-1">
                     {gruppe.map((eintrag) => (
                       <li
                         key={eintrag.id}
-                        className="border-b border-[var(--border)] py-8 last:border-b-0"
+                        className="grid gap-4 border-b-2 border-[#111] pb-8 pt-0 not-first:pt-8 last:border-b-0 md:grid-cols-[280px_minmax(0,1fr)] md:gap-10"
                       >
-                        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                          <h4 className="font-serif-display text-[27px] font-bold leading-tight sm:text-[32px]">
+                        <div>
+                          <h3 className="font-display text-[44px] leading-none font-extrabold break-words md:text-[56px]">
                             {eintrag.wort}
-                          </h4>
+                          </h3>
                           {eintrag.wortart && (
-                            <span className="rounded-[4px] bg-[var(--accent)]/[0.08] px-2 py-0.5 text-xs font-semibold tracking-wide text-[var(--accent)] uppercase">
+                            <span className="font-display mt-3 inline-block bg-[#111] px-2.5 py-0.5 text-[15px] font-semibold tracking-[0.14em] text-white uppercase">
                               {eintrag.wortart}
                             </span>
                           )}
                         </div>
 
-                        <p className="mt-2 text-[21px] font-medium text-[var(--foreground)]">
-                          {eintrag.uebersetzung}
-                        </p>
-
-                        {eintrag.aussprachehinweis && (
-                          <p className="mt-2 text-[15px] text-[var(--muted)]">
-                            Aussprache:{" "}
-                            <span className="text-[var(--foreground)]">
-                              {eintrag.aussprachehinweis}
-                            </span>
+                        <div className="min-w-0">
+                          <p className="text-[26px] leading-[1.2] font-semibold md:text-[30px]">
+                            {eintrag.uebersetzung}
                           </p>
-                        )}
 
-                        {eintrag.beispielsatz && (
-                          <blockquote className="mt-6 border-l-[3px] border-[var(--accent)] py-0.5 pl-5">
-                            <p className="text-[17px] leading-relaxed italic sm:text-[18px]">
-                              „{eintrag.beispielsatz}“
+                          {eintrag.aussprachehinweis && (
+                            <p className="mt-2 text-[17px] text-[var(--muted)]">
+                              Aussprache:{" "}
+                              <span className="font-semibold text-[#111]">
+                                {eintrag.aussprachehinweis}
+                              </span>
                             </p>
-                            {eintrag.beispielsatzUebersetzung && (
-                              <p className="mt-1.5 text-[14px] text-[var(--muted)] sm:text-[15px]">
-                                {eintrag.beispielsatzUebersetzung}
+                          )}
+
+                          {eintrag.beispielsatz && (
+                            <blockquote className="mt-5 border-l-[10px] border-[var(--green)] py-0.5 pl-5">
+                              <p className="text-xl leading-[1.4] font-medium md:text-[22px]">
+                                „{eintrag.beispielsatz}“
                               </p>
-                            )}
-                          </blockquote>
-                        )}
+                              {eintrag.beispielsatzUebersetzung && (
+                                <p className="mt-2 text-[16px] text-[var(--muted)] md:text-[17px]">
+                                  {eintrag.beispielsatzUebersetzung}
+                                </p>
+                              )}
+                            </blockquote>
+                          )}
 
-                        {eintrag.anmerkung && (
-                          <p className="mt-4 text-[15px] text-[var(--muted)]">
-                            {eintrag.anmerkung}
-                          </p>
-                        )}
+                          {eintrag.anmerkung && (
+                            <p className="mt-4 text-[16px] text-[var(--muted)]">
+                              {eintrag.anmerkung}
+                            </p>
+                          )}
 
-                        {eintrag.eingereichtVon && (
-                          <p className="mt-5 text-[13px] text-[var(--muted)]">
-                            Eingereicht von {eintrag.eingereichtVon}
-                          </p>
-                        )}
+                          {eintrag.eingereichtVon && (
+                            <p className="mt-4 text-[14px] text-[var(--muted)]">
+                              Eingereicht von {eintrag.eingereichtVon}
+                            </p>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>

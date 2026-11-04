@@ -11,9 +11,9 @@ import {
 const anfangsZustand: EinreichenState = { status: "idle" };
 
 const feldKlasse =
-  "h-[52px] w-full rounded-[7px] border border-[var(--border)] bg-white px-4 text-base outline-none transition-colors duration-150 focus:border-[var(--accent)]";
+  "h-[54px] w-full border-[3px] border-[#111] bg-white px-4 text-lg outline-none focus:shadow-[0_0_0_4px_var(--green)]";
 const textareaKlasse =
-  "w-full rounded-[7px] border border-[var(--border)] bg-white px-4 py-3 text-base outline-none transition-colors duration-150 focus:border-[var(--accent)]";
+  "w-full border-[3px] border-[#111] bg-white px-4 py-3 text-lg outline-none focus:shadow-[0_0_0_4px_var(--green)]";
 
 function Feld({
   label,
@@ -29,14 +29,16 @@ function Feld({
   return (
     <div>
       <label htmlFor={htmlFor} className="block">
-        <span className="text-[15px] font-semibold">{label}</span>
+        <span className="font-display text-[22px] font-bold tracking-[0.04em] uppercase">
+          {label}
+        </span>
         {hinweis && (
-          <span className="mt-0.5 block text-sm text-[var(--muted)]">
+          <span className="block text-[15px] text-[var(--muted)]">
             {hinweis}
           </span>
         )}
       </label>
-      <div className="mt-[7px]">{children}</div>
+      <div className="mt-2">{children}</div>
     </div>
   );
 }
@@ -53,17 +55,17 @@ export function EinreichenFormular({
 
   if (state.status === "erfolg") {
     return (
-      <div className="border-t border-[var(--border)] pt-8">
-        <p className="font-serif-display text-3xl font-semibold text-[var(--accent)]">
-          Dank schee!
+      <div className="border-l-[10px] border-[var(--green)] py-1 pl-6">
+        <p className="font-display text-5xl font-extrabold">Dank schee!</p>
+        <p className="mt-3 text-2xl font-semibold">
+          Dein Wort ist bei uns angekommen.
         </p>
-        <p className="mt-3 text-lg">Dein Wort ist bei uns angekommen.</p>
-        <p className="mt-1 text-[15px] text-[var(--muted)]">
+        <p className="mt-1 text-[17px] text-[var(--muted)]">
           Nach einer kurzen Prüfung erscheint es im Huddemabuch.
         </p>
         <a
           href="/einreichen"
-          className="mt-6 inline-block text-[15px] font-semibold text-[var(--accent)] underline-offset-4 hover:underline"
+          className="font-display mt-6 inline-block border-b-[5px] border-[var(--green)] pb-0.5 text-xl font-bold tracking-[0.05em] uppercase transition-colors hover:border-[#111]"
         >
           Noch ein Wort beisteuern
         </a>
@@ -72,7 +74,7 @@ export function EinreichenFormular({
   }
 
   return (
-    <form action={formAction} className="space-y-6">
+    <form action={formAction} className="space-y-7">
       <Feld
         label="Dialektwort *"
         hinweis="Wie sagt man es in Huttenheim?"
@@ -185,7 +187,7 @@ export function EinreichenFormular({
             className={feldKlasse}
           />
         </Feld>
-        <p className="mt-2 text-[13px] text-[var(--muted)]">
+        <p className="mt-2 text-[14px] text-[var(--muted)]">
           Deine E-Mail-Adresse wird nicht veröffentlicht.
         </p>
       </div>
@@ -199,7 +201,7 @@ export function EinreichenFormular({
       )}
 
       {state.status === "fehler" && (
-        <p className="rounded-[7px] bg-red-50 p-4 text-[15px] text-red-800">
+        <p className="border-[3px] border-red-700 bg-red-50 p-4 text-[16px] font-medium text-red-900">
           {state.fehler}
         </p>
       )}
@@ -207,7 +209,7 @@ export function EinreichenFormular({
       <button
         type="submit"
         disabled={isPending}
-        className="rounded-md bg-[var(--accent)] px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[var(--accent-dark)] disabled:opacity-60"
+        className="font-display h-[58px] border-[3px] border-[#111] bg-[var(--green)] px-10 text-2xl font-extrabold tracking-[0.08em] text-[#111] uppercase transition-colors hover:bg-[#111] hover:text-[var(--green)] disabled:opacity-60"
       >
         {isPending ? "Wird gesendet…" : "Wort einreichen"}
       </button>

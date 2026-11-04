@@ -12,20 +12,19 @@ export default function EinreichenSeite() {
       <SiteHeader />
 
       <main className="flex-1">
-        <section className="border-b border-[var(--border)]">
-          <div className="mx-auto max-w-[1080px] px-[18px] pb-10 pt-14 sm:px-6 lg:px-8">
-            <p className="text-sm font-semibold tracking-[0.14em] text-[var(--accent)]">
-              MITMACHEN
-            </p>
-            <h1 className="font-serif-display mt-4 max-w-[700px] text-[38px] font-semibold leading-[1.1] sm:text-5xl">
-              Kennsch noch ä Wort?
-            </h1>
-            <p className="mt-5 max-w-[680px] text-lg text-[var(--muted)]">
-              Hilf mit, den Huttenheimer Dialekt zu bewahren. Trag ein Wort,
-              eine Redewendung oder einen Ausdruck ein, den wir noch nicht im
-              Huddemabuch haben.
-            </p>
-          </div>
+        <section className="mx-auto max-w-[1080px] px-[18px] pb-6 pt-12 sm:px-6 lg:px-8">
+          <p className="font-display inline-block bg-[#111] px-3 py-0.5 text-lg font-semibold tracking-[0.14em] text-[var(--green)] uppercase">
+            Mitmachen
+          </p>
+          <h1 className="font-display mt-4 max-w-[760px] text-[48px] leading-[1.02] font-extrabold sm:text-[68px]">
+            Kennsch noch ä Wort?
+          </h1>
+          <div className="mt-5 h-[6px] w-28 bg-[var(--green)]" />
+          <p className="mt-6 max-w-[680px] text-xl leading-[1.45] font-medium">
+            Hilf mit, den Huttenheimer Dialekt zu bewahren. Trag ein Wort,
+            eine Redewendung oder einen Ausdruck ein, den wir noch nicht im
+            Huddemabuch haben.
+          </p>
         </section>
 
         {turnstileSiteKey && (
@@ -37,8 +36,10 @@ export default function EinreichenSeite() {
           />
         )}
 
-        <section className="mx-auto max-w-[700px] px-[18px] py-12 sm:px-6 lg:px-8">
-          <EinreichenFormular turnstileSiteKey={turnstileSiteKey} />
+        <section className="mx-auto max-w-[1080px] px-[18px] pb-16 pt-6 sm:px-6 lg:px-8">
+          <div className="max-w-[720px]">
+            <EinreichenFormular turnstileSiteKey={turnstileSiteKey} />
+          </div>
         </section>
       </main>
 

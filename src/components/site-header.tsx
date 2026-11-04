@@ -2,27 +2,27 @@ import Link from "next/link";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-[var(--border)] bg-[var(--background)]">
-      <div className="mx-auto flex h-[72px] max-w-[1080px] items-center justify-between gap-6 px-[18px] sm:px-6 lg:h-20 lg:px-8">
-        <Link href="/" className="group leading-none">
-          <span className="block text-xl font-bold tracking-tight text-[var(--foreground)] lg:text-2xl">
+    <header className="bg-[var(--olive)] text-white">
+      <div className="mx-auto flex h-[68px] max-w-[1080px] items-center justify-between gap-4 px-[18px] sm:px-6 md:h-[76px] lg:px-8">
+        <Link href="/" className="flex items-center gap-4">
+          <span className="font-display rounded-md border-[3px] border-white bg-[var(--green)] px-3 py-0.5 text-[19px] leading-[1.15] sm:text-[24px] font-extrabold tracking-[0.02em] text-[#111] md:text-[28px]">
             HUDDEMABUCH
           </span>
-          <span className="mt-0.5 block text-[11px] tracking-wide text-[var(--muted)] lg:text-xs">
-            Huttenheimer Wörterbuch
+          <span className="hidden text-[15px] text-[#d9ddcc] lg:inline">
+            Wörterbuch für Huttenheim
           </span>
         </Link>
 
-        <nav className="flex items-center gap-5 lg:gap-8">
+        <nav className="font-display flex items-center gap-6 text-[20px] font-semibold tracking-[0.06em] uppercase md:gap-9">
           <Link
             href="/"
-            className="hidden text-[15px] font-medium text-[var(--foreground)] transition-colors hover:text-[var(--accent)] sm:inline"
+            className="hidden transition-colors hover:text-[var(--green)] sm:inline"
           >
             Wörterbuch
           </Link>
           <Link
             href="/einreichen"
-            className="rounded-md bg-[var(--accent)] px-[18px] py-[11px] text-sm font-semibold text-white transition-colors hover:bg-[var(--accent-dark)] sm:px-5"
+            className="whitespace-nowrap rounded bg-[var(--green)] px-3 py-2 text-[17px] font-bold sm:px-4 sm:text-[20px] text-[#111] transition-colors hover:bg-white md:px-5"
           >
             Wort beisteuern
           </Link>

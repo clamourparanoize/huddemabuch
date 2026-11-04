@@ -1,71 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  /* Warmes Papier statt reinem Weiß, dunkles Anthrazit statt Schwarz -
-     siehe Design-Vorgabe "moderner regionaler Duden". */
-  --background: #f7f5f0;
-  --foreground: #191919;
-  --muted: #696760;
+  /* Ortsschild-Design: helles Papier, Schwarz für Schrift und Rahmen,
+     das Grün (#7FA061) und das dunkle Oliv (#4E563B) stammen von
+     huddene.de, damit beide Seiten zusammengehören. */
+  --background: #f6f4ee;
+  --foreground: #111111;
+  --muted: #5b5849;
 
-  /* Hauptakzent Dunkelgrün - Navigation, Buttons, Linien, Fokus. */
-  --accent: #244a38;
-  --accent-dark: #1a3628;
+  --green: #7fa061;
+  --olive: #4e563b;
 
-  /* Zweiter Akzent - nur für sehr sparsame Details. */
-  --gold: #c7983e;
+  /* Schwarz als Standard-Aktionsfarbe (weiße Schrift auf dem Grün
+     hätte zu wenig Kontrast) - auch der Admin-Bereich nutzt --accent. */
+  --accent: #111111;
+  --accent-dark: #2b2b2b;
 
   --card: #ffffff;
-  --border: #d9d6ce;
-
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --border: #cfcabb;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/*
- * Grundschrift bewusst nicht winzig - Zielgruppe der Einreichenden sind
- * oft ältere Personen, Lesbarkeit geht vor Dichte. 17px statt der
- * früheren 18px, da die neue Typografie-Hierarchie (siehe Wörterbuch-
- * einträge) mehr über Größenkontraste als über eine große Grundschrift
- * arbeitet.
- */
 html {
   font-size: 17px;
   scroll-behavior: smooth;
 }
 
-.font-serif-display {
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+.font-display {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
 }
 
-/* Anchor-Ziele der Buchstabengruppen - Abstand zum (nicht fixierten)
-   Seitenanfang, damit die Überschrift beim Ansprung nicht am
-   Viewport-Rand klebt. */
 .buchstaben-anker {
   scroll-margin-top: 24px;
 }
 
-/* A-Z-Leiste: horizontal scrollbar auf Mobile, ohne sichtbaren
-   Scrollbalken - editorial, keine Button-Optik. */
+/* A-Z-Leiste: horizontal scrollbar auf Mobile, ohne sichtbaren Balken. */
 .az-leiste {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .az-leiste::-webkit-scrollbar {
   display: none;
-}
-
-/* Dezentes, rein typografisches Wasserzeichen im Hero - siehe
-   Design-Vorgabe Punkt 5. Läuft bewusst nicht über die Lesespalte,
-   beeinflusst nie die Lesbarkeit des Vordergrundtexts. */
-.hero-wasserzeichen {
-  pointer-events: none;
-  user-select: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
