@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export function SiteHeader() {
@@ -6,17 +5,11 @@ export function SiteHeader() {
     <header className="bg-[var(--olive)] text-white">
       <div className="mx-auto flex h-[68px] max-w-[1080px] items-center justify-between gap-4 px-[18px] sm:px-6 md:h-[76px] lg:px-8">
         <Link href="/" className="flex items-center gap-3 md:gap-4">
-          <Image
-            src="/logo.webp"
-            alt="So schwätzt ma in Huddene"
-            width={1920}
-            height={1080}
-            priority
-            sizes="100px"
-            className="h-[42px] w-auto md:h-[52px]"
-          />
-          <span className="font-display text-[22px] leading-none font-extrabold tracking-[0.03em] md:text-[28px]">
+          <span className="font-display rounded-md border-[3px] border-white bg-[var(--green)] px-3 py-0.5 text-[20px] leading-[1.15] font-extrabold tracking-[0.02em] text-[#111] sm:text-[24px] md:text-[28px]">
             HUDDEMABUCH
+          </span>
+          <span className="hidden text-[15px] text-[#d9ddcc] lg:inline">
+            Wörterbuch für Huttenheim
           </span>
         </Link>
 

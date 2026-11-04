@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import Image from "next/image";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -74,18 +75,17 @@ export default async function StartSeite({
       <main className="flex-1">
         {/* Ortsschild */}
         <section className="mx-auto flex max-w-[1080px] flex-col gap-8 px-[18px] pb-10 pt-10 sm:px-6 md:flex-row md:items-center md:gap-14 md:pt-14 lg:px-8">
-          <div className="w-full shrink-0 rounded-[18px] border-[8px] border-[#111] bg-[var(--green)] px-6 pb-6 pt-5 md:w-[560px] md:border-[10px] md:px-9 md:pb-7">
-            <p className="font-display text-xl font-semibold tracking-[0.14em] text-[#111] uppercase md:text-2xl">
-              Heißt bei uns
-            </p>
-            <h1 className="font-display text-[clamp(64px,19vw,120px)] leading-[0.92] font-extrabold tracking-[0.01em] text-[#111] uppercase md:text-[132px]">
-              Huddene
-            </h1>
-            <div className="my-3 h-[6px] bg-[#111]" />
-            <p className="font-display text-[22px] font-semibold text-[#111] md:text-[28px]">
-              Huttenheim · so schwätzt mer
-            </p>
-          </div>
+          <h1 className="w-full shrink-0 md:w-[560px]">
+            <Image
+              src="/logo.webp"
+              alt="So schwätzt ma in Huddene"
+              width={1920}
+              height={1080}
+              priority
+              sizes="(min-width: 768px) 560px, 100vw"
+              className="h-auto w-full"
+            />
+          </h1>
 
           <div className="min-w-0 flex-1">
             <p className="text-xl leading-[1.45] font-medium md:text-2xl">
