@@ -8,9 +8,6 @@ export function SiteHeader() {
           <span className="font-display rounded-md border-[3px] border-white bg-[var(--green)] px-3 py-0.5 text-[20px] leading-[1.15] font-extrabold tracking-[0.02em] text-[#111] sm:text-[24px] md:text-[28px]">
             HUDDEMABUCH
           </span>
-          <span className="hidden text-[15px] text-[#d9ddcc] lg:inline">
-            Wörterbuch für Huttenheim
-          </span>
         </Link>
 
         <nav className="font-display flex items-center gap-6 text-[20px] font-semibold tracking-[0.06em] uppercase md:gap-9">

@@ -90,7 +90,7 @@ export default async function StartSeite({
           <div className="min-w-0 flex-1">
             <p className="text-xl leading-[1.45] font-medium md:text-2xl">
               Wörter und Ausdrücke aus dem Huttenheimer Dialekt, gesammelt von
-              Dorfbewohnern – damit sie nicht in Vergessenheit geraten.
+              Dorfbewohnern, damit sie nicht in Vergessenheit geraten.
             </p>
             <a
               href="/einreichen"

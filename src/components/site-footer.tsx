@@ -9,7 +9,7 @@ export function SiteFooter() {
             HUDDEMABUCH
           </p>
           <p className="mt-0.5 text-[15px] text-[#d9ddcc]">
-            Das Huttenheimer Wörterbuch – ein Projekt zum Erhalt unseres
+            Das Huttenheimer Wörterbuch. Ein Projekt zum Erhalt unseres
             Dialekts.
           </p>
         </div>
